@@ -1,0 +1,15 @@
+{
+  "name": "dominant",
+  "version": "0.1.0",
+  "sources": ["src"],
+  "package-specs": {
+    "module": "es6",
+    "in-source": false
+  },
+  "suffix": ".bs.js",
+  "bs-dependencies": ["bs-jest"],
+  "bs-dev-dependencies": [],
+  "bsc-flags": ["-bs-gen-tds", "-bs-super-errors"],
+  "namespace": true,
+  "refmt": 3
+}

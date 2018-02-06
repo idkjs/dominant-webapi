@@ -1,0 +1,24 @@
+{
+  "name": "dominant",
+  "version": "0.1.0",
+  "main": "lib/es6/src/Dominant.bs.js",
+  "scripts": {
+    "clean": "bsb -clean-world",
+    "build": "bsb -make-world",
+    "watch": "bsb -make-world -w",
+    "test": "npm run clean && npm run build && jest"
+  },
+  "keywords": [
+    "BuckleScript"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "bs-jest": "^0.3.2",
+    "bs-platform": "^2.1.0"
+  },
+  "jest": {
+    "testRegex": "Test.bs.js"
+  },
+  "dependencies": {}
+}
