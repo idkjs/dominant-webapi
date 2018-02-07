@@ -20,11 +20,18 @@
   "author": "",
   "license": "MIT",
   "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-jest": "^22.2.0",
+    "babel-preset-env": "^1.6.1",
     "bs-jest": "^0.3.2",
     "bs-platform": "^2.1.0"
   },
   "jest": {
-    "testRegex": "Test.bs.js"
+    "testRegex": "Test.bs.js",
+    "transform": {
+      "^.+\\.jsx?$": "babel-jest"
+    },
+    "transformIgnorePatterns": []
   },
   "dependencies": {}
 }
