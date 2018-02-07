@@ -1,7 +1,7 @@
 module Image = {
   type t;
-  [@bs.new] external create : unit => t = "Image";
-  [@bs.set] external setSource : (t, string) => unit = "source";
+  [@bs.new] external create : unit => t = "window.Image";
+  [@bs.set] external setSource : (t, string) => unit = "src";
   [@bs.set]
   external setOnload : (t, [@bs.this] (t => unit)) => unit = "onload";
   [@bs.get] external getWidth : t => float = "width";
@@ -47,11 +47,11 @@ let onLoad = callback =>
   [@bs.this]
   (
     img => {
-      let canevas = document |> Document.createElement("canevas");
-      let context = canevas |> Canvas.getContext("2d");
-      canevas
+      let canvas = document |> Document.createElement("canvas");
+      let context = canvas |> Canvas.getContext("2d");
+      canvas
       |> Element.setAttribute("width", string_of_float(Image.getWidth(img)));
-      canevas
+      canvas
       |> Element.setAttribute("height", string_of_float(Image.getHeight(img)));
       context |> CanvasContext.drawImage(img, 0.0, 0.0);
       let imageData =
