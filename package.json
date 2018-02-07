@@ -1,15 +1,21 @@
 {
   "name": "dominant",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "main": "lib/es6/src/Dominant.bs.js",
   "scripts": {
     "clean": "bsb -clean-world",
     "build": "bsb -make-world",
     "watch": "bsb -make-world -w",
-    "test": "npm run clean && npm run build && jest"
+    "test": "npm run clean && npm run build && jest",
+    "build-demo": "npm run build && webpack",
+    "dev-demo": "webpack-dev-server"
   },
   "keywords": [
-    "BuckleScript"
+    "BuckleScript",
+    "bs",
+    "reason",
+    "image",
+    "colors"
   ],
   "author": "",
   "license": "MIT",
