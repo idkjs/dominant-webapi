@@ -18,35 +18,42 @@
   "publishConfig": {
     "access": "public"
   },
-  "files": [ "src", "dist", "index.js.flow", "bsconfig.json" ],
+  "files": [
+    "src",
+    "dist",
+    "index.js.flow",
+    "bsconfig.json"
+  ],
   "scripts": {
+    "doc-install": "npm install --no-save bsdoc",
+    "docs:build": "doc-install && bsdoc build Dominant && bsdoc support-files && prettier --write 'docs/**/*.html'",
     "check:ts": "tsc --noEmit",
     "check:flow": "flow focus-check ./src/flow/Dominant_flow_test.js",
     "check": "run-s check:ts check:flow",
     "bs:clean": "bsb -clean-world",
     "bs:build": "bsb -make-world",
-    "bs:watch": "bsb -make-world -w",
-    "testw": "jest",
+    "bs:watch": "BS_WATCH_CLEAR=true bsb -make-world -w",
     "refmt": "bsrefmt --in-place **/*.{re,rei}",
     "bundle:clean": "rimraf dist node_modules/.cache",
     "bundle": "rollup -c rollup.config.js",
     "clean": "run-s bs:clean bundle:clean",
     "build": "run-s bs:build bundle flowgen",
     "prepublishOnly": "run-s clean build check test",
-    "watch": "bsb -make-world -w",
-    "test2": "npm run clean && npm run build && jest",
-    "start": "BS_WATCH_CLEAR=true bsb -make-world -w",
     "test": "is-ci-cli test:ci test:watch",
     "test:ci": "jest",
     "test:watch": "jest --watch",
-    "rollup:build": "rollup -c",
-    "prepare": "npm run build && npm run rollup:build",
+    "rollup:build": "rollup -c rollup.config.js",
     "flowgen": "./scripts/generate-flow-files.js",
     "test:coverage": "jest --coverage",
     "build-demo": "npm run build && webpack",
     "dev-demo": "webpack serve"
   },
-  "keywords": [ "Rescript", "Reason", "image", "Colors" ],
+  "keywords": [
+    "Rescript",
+    "Reason",
+    "image",
+    "Colors"
+  ],
   "author": "",
   "license": "MIT",
   "devDependencies": {
@@ -98,15 +105,38 @@
     "type": "git",
     "url": "https://github.com/Swapcard-Corporation/dominant.git"
   },
+  "lint-staged": {
+    "*.{d.ts,js}": [
+      "prettier --write"
+    ],
+    "*.{re,rei}": [
+      "bsrefmt --in-place"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "prettier": {
+    "singleQuote": true,
+    "printWidth": 100
+  },
   "jest": {
-    "testEnvironment": "node",
+    "testEnvironment": "jsdom",
     "testRegex": "(src/.*(\\.|/)(test|spec))\\.(t|j)sx?$",
-    "moduleFileExtensions": [ "js", "ts", "tsx" ],
+    "moduleFileExtensions": [
+      "js",
+      "ts",
+      "tsx"
+    ],
     "transform": {
       "\\.jsx?$": "<rootDir>/scripts/jest-transform-esm.js",
       "\\.tsx?$": "ts-jest"
     },
-    "transformIgnorePatterns": [ "/node_modules/(?!bs-platform)" ],
+    "transformIgnorePatterns": [
+      "/node_modules/(?!bs-platform)"
+    ],
     "collectCoverageFrom": [
       "!<rootDir>/src/*.{ts,bs.js}",
       "!<rootDir>/src/**/*.{shim,gen}.{ts,tsx}",

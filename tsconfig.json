@@ -7,10 +7,7 @@
     "rootDir": "./src",
     "baseUrl": ".",
     "outDir": "dist/cjs",
-    "types": [
-      "@types/node",
-      "@types/jest"
-    ],
+    "types": ["@types/node", "@types/jest"],
     "lib": ["dom", "esnext"],
     "jsx": "react",
     "declaration": false,
@@ -22,5 +19,6 @@
     "noUnusedParameters": false,
     "sourceMap": true,
     "pretty": true
-  }
+  },
+  "include": ["src/**/*"]
 }
