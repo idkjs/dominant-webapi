@@ -18,7 +18,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "browser": true,
+  "files": [ "src", "dist", "index.js.flow", "bsconfig.json" ],
   "scripts": {
     "check:ts": "tsc --noEmit",
     "check:flow": "flow focus-check ./src/flow/Dominant_flow_test.js",
@@ -46,12 +46,7 @@
     "build-demo": "npm run build && webpack",
     "dev-demo": "webpack serve"
   },
-  "keywords": [
-    "Rescript",
-    "Reason",
-    "image",
-    "Colors"
-  ],
+  "keywords": [ "Rescript", "Reason", "image", "Colors" ],
   "author": "",
   "license": "MIT",
   "devDependencies": {
@@ -106,18 +101,12 @@
   "jest": {
     "testEnvironment": "node",
     "testRegex": "(src/.*(\\.|/)(test|spec))\\.(t|j)sx?$",
-    "moduleFileExtensions": [
-      "js",
-      "ts",
-      "tsx"
-    ],
+    "moduleFileExtensions": [ "js", "ts", "tsx" ],
     "transform": {
       "\\.jsx?$": "<rootDir>/scripts/jest-transform-esm.js",
       "\\.tsx?$": "ts-jest"
     },
-    "transformIgnorePatterns": [
-      "/node_modules/(?!bs-platform)"
-    ],
+    "transformIgnorePatterns": [ "/node_modules/(?!bs-platform)" ],
     "collectCoverageFrom": [
       "!<rootDir>/src/*.{ts,bs.js}",
       "!<rootDir>/src/**/*.{shim,gen}.{ts,tsx}",

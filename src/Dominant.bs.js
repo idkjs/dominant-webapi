@@ -162,10 +162,6 @@ function ofUrl(url, square, param) {
             });
 }
 
-console.log("hellodd");
-
-console.log(ofUrl("https://www.swapcard.com/", undefined, undefined));
-
 export {
   reduceRange ,
   reduceColorRange ,
@@ -181,4 +177,4 @@ export {
   ofUrl ,
   
 }
-/*  Not a pure module */
+/* No side effect */

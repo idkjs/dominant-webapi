@@ -170,6 +170,3 @@ let ofUrl = (url, ~square=?, ()) =>
   |> Js.Promise.then_(imageData =>
        Js.Promise.resolve(ofImageData(imageData, ~square?, ()))
      );
-
-    Js.log("hellodd")
-    Js.log(ofUrl("https://www.swapcard.com/",()))

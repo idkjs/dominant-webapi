@@ -5,7 +5,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
   mode:'development',
   entry: {
-    index: './src/Dominant.bs.js',
+    index: './demo/index.ts',
   },
 
   plugins: [

@@ -19,8 +19,7 @@
       "Js": "Js",
       "Dom": "Dom",
       "ReasonPervasives": "ReasonPervasives"
-    },
-    "emit-types": true
+    }
   },
   "suffix": ".bs.js",
   "bs-dependencies": [],
