@@ -5,7 +5,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
   mode:'development',
   entry: {
-    index: './lib/es6/src/Dominant.bs.js',
+    index: './demo/index.js',
   },
 
   plugins: [
@@ -15,7 +15,7 @@ module.exports = {
   ],
   output: {
     filename: '[name].bundle.js',
-    path: path.resolve(__dirname, 'dist'),
+    path: path.resolve(__dirname, 'demo'),
     clean: true,
   }
 };
