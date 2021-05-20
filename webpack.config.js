@@ -3,19 +3,26 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  mode:'development',
+  mode: 'development',
   entry: {
     index: './demo/index.ts',
   },
-
+  devServer: {
+    proxy: {
+      '/': {
+        target: 'http://localhost:8080',
+        secure: false,
+      },
+    },
+  },
   plugins: [
     new HtmlWebpackPlugin({
-      title: 'Dominant'
-    })
+      title: 'Dominant',
+    }),
   ],
   output: {
     filename: '[name].bundle.js',
     path: path.resolve(__dirname, 'demo'),
     clean: true,
-  }
+  },
 };
